@@ -539,10 +539,6 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .home__name{
-    font-size: var(--h2-font-size);
-  }
-
   
 }
 
@@ -688,18 +684,18 @@ img {
   }
   
 
-  .footer__container{
+  footer__container{
     padding-block: 4rem;
     grid-template-columns: repeat(2, max-content);
     justify-content: space-between;
   }
 
-  .footer__links{
+  footer__links{
     column-gap: 3rem;
     order: 1;
   }
 
-  .scrollup{
+  scrollup{
     right: 3rem;
   }
 
