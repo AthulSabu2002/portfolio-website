@@ -528,7 +528,7 @@ img {
 
 
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 340px) {
   .container{
     margin-inline: 1rem;
   }
@@ -537,6 +537,10 @@ img {
   }
   .skills__info{
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home__name{
+    font-size: var(--h2-font-size);
   }
 
   
@@ -555,7 +559,7 @@ img {
 }
 
 
-@media screen and (min-width:1150px)  {
+@media  screen and (min-width:1150px) {
   .container{
     margin-inline: auto;
   }
@@ -684,18 +688,19 @@ img {
   }
   
 
-  footer__container{
+  .footer__container{
     padding-block: 4rem;
     grid-template-columns: repeat(2, max-content);
-    justify-content: center;
+    justify-content: space-between;
+    text-align: center;
   }
 
-  footer__links{
+  .footer__links{
     column-gap: 3rem;
     order: 1;
   }
 
-  scrollup{
+  .scrollup{
     right: 3rem;
   }
 
