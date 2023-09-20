@@ -39,7 +39,7 @@
 }
 
 
-@media screen and (min-width: 1150px) {
+@media only screen and (min-width: 1150px) {
   :root {
     --biggest-font-size: 4.5rem;
     --h1-font-size: 3rem;
@@ -186,7 +186,7 @@ img {
 }
 
 
-@media screen and (max-width: 1150px) {
+@media only screen and (max-width: 1150px) {
   .nav__menu{
       position: fixed;
       top:-100%;
@@ -528,7 +528,7 @@ img {
 
 
 
-@media screen and (max-width: 340px) {
+@media only screen and (max-width: 480px){
   .container{
     margin-inline: 1rem;
   }
@@ -544,7 +544,7 @@ img {
 
 
 
-@media screen and (min-width:576px) {
+@media only screen and (min-width:576px) and (max-width: 1149px)  {
   .home__container{
     grid-template-columns: 350px;
     justify-content: center;
@@ -555,7 +555,7 @@ img {
 }
 
 
-@media  screen and (min-width:1024px) {
+@media only screen and (min-width:1150px)  {
   .container{
     margin-inline: auto;
   }
