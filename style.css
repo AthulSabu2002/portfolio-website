@@ -101,7 +101,7 @@ img {
 }
 
 .section {
-  padding-block: 4rem 2rem;
+  padding-block: 1rem 1rem;
 }
 
 .section__title-1, 
@@ -706,6 +706,10 @@ img {
     right: 3rem;
   }
 
+}
+
+.footer-section{
+  padding-top: 5rem;
 }
 
 .footer {
