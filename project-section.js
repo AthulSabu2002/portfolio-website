@@ -1,45 +1,51 @@
 const track = document.querySelector('.project-slider-track');
-        const slides = Array.from(track.children);
-        const slideWidth = slides[0].getBoundingClientRect().width;
-        const slideGap = parseFloat(getComputedStyle(slides[0]).marginRight);
-        const totalWidth = (slideWidth + slideGap) * slides.length;
+const slides = Array.from(track.children);
+const slideWidth = slides[0].getBoundingClientRect().width;
+const slideGap = parseFloat(getComputedStyle(slides[0]).marginRight);
 
-        let currentPosition = 0;
-        const moveDistance = 0.5; // Movement distance for smoother effect
-        let intervalId;
+// Clone all slides for a truly infinite effect
+slides.forEach(slide => {
+    track.appendChild(slide.cloneNode(true));
+});
 
-        function startSlider() {
-            intervalId = setInterval(moveSlider, 20); // Adjust speed: smaller interval for smoother scrolling
-        }
+const totalSlides = track.children.length;
+const totalWidth = (slideWidth + slideGap) * totalSlides;
 
-        function moveSlider() {
-            currentPosition -= moveDistance;
-            track.style.transform = `translateX(${currentPosition}px)`;
+let currentPosition = 0;
+const moveDistance = 0.5; // Movement distance for smoother effect
+let intervalId;
 
-            // Reset position when it reaches the end
-            if (Math.abs(currentPosition) >= totalWidth) {
-                currentPosition = 0;
-                track.style.transition = 'none'; // Disable transition for jump
-                track.style.transform = `translateX(${currentPosition}px)`;
-                setTimeout(() => {
-                    track.style.transition = 'transform 0.5s linear'; // Reapply transition
-                }, 50);
-            }
-        }
+// Set initial position
+track.style.transform = `translateX(${currentPosition}px)`;
 
-        function stopSlider() {
-            clearInterval(intervalId);
-        }
+function startSlider() {
+    intervalId = setInterval(moveSlider, 20); // Adjust speed: smaller interval for smoother scrolling
+}
 
-        function resumeSlider() {
-            startSlider();
-        }
+function moveSlider() {
+    currentPosition -= moveDistance;
+    
+    // If we've scrolled past half of the total width, reset to create the infinite effect
+    if (Math.abs(currentPosition) >= totalWidth / 2) {
+        currentPosition += totalWidth / 2;
+    }
+    
+    track.style.transform = `translateX(${currentPosition}px)`;
+}
 
-        // Start slider initially
-        startSlider();
+function stopSlider() {
+    clearInterval(intervalId);
+}
 
-        // Event listeners for pausing and resuming on hover
-        document.querySelectorAll('.project-slide').forEach(slide => {
-            slide.addEventListener('mouseover', stopSlider);
-            slide.addEventListener('mouseout', resumeSlider);
-        });
+function resumeSlider() {
+    startSlider();
+}
+
+// Start slider initially
+startSlider();
+
+// Event listeners for pausing and resuming on hover
+document.querySelectorAll('.project-slide').forEach(slide => {
+    slide.addEventListener('mouseover', stopSlider);
+    slide.addEventListener('mouseout', resumeSlider);
+});
