@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap");
 
+* {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
 
 :root {
   --header-height: 3.5rem;
@@ -1136,6 +1145,71 @@ img {
 
   .contact-map {
       height: 350px;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 576px) {
+  html {
+    /* Prevent zooming on mobile */
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+  }
+
+  .home__container {
+    padding-top: 1rem !important;
+  }
+
+  .home__name {
+    font-size: var(--h2-font-size) !important;
+  }
+
+  .home__perfil {
+    width: 100% !important;
+  }
+
+  .home__image {
+    width: 180px !important;
+    margin: 0 auto !important;
+  }
+
+  .skills__info {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .contact-subsection {
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .footer__container {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+}
+
+/* Force mobile layout even when "desktop site" is requested */
+@media screen and (max-width: 576px) and (min-resolution: 1.1dppx) {
+  body {
+    /* Force mobile layout */
+    min-width: 320px !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .nav__menu {
+    width: 100% !important;
+  }
+
+  .project-slide {
+    flex: 0 0 100% !important;
+    margin-right: 0 !important;
   }
 }
 
